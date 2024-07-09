@@ -7,7 +7,7 @@ interface PropsImageGallery{
     onClick: (url:string)=> void, 
 }
 
-const ImageGallery = ({ gallery, onClick }:PropsImageGallery) => {
+const ImageGallery: React.FC<PropsImageGallery> = ({ gallery, onClick }) => {
 
     return (
         <ul className={css.list}>

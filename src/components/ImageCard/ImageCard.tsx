@@ -1,6 +1,15 @@
 import css from './ImageCard.module.css'
 
-const ImageCard = ({ url, alt, onClick, regular, likes, name }) => {
+interface ImageCardProps{
+  url: string,
+  alt: string,
+  onClick: (regular:string) => void,
+  regular: string,
+  likes: number,
+  name: string
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ url, alt, onClick, regular, likes, name }) => {
   return (
     <div >
       <img className={css.img} src={url} alt={alt} onClick={() => onClick(regular)} />
