@@ -1,9 +1,10 @@
 import toast, { Toaster } from 'react-hot-toast';
 import css from './SearchBar.module.css'
+import { FormEvent } from 'react';
 
 const SearchBar = ({ onSubmit }) => {
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const form = evt.target;
         const topic = form.elements.topic.value;

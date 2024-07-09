@@ -32,6 +32,8 @@ interface Gallery {
     }
 }
 
+
+
 function App() {
   const [gallery, setGallery] = useState<Gallery[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -48,7 +50,7 @@ function App() {
         setLoading(true);
         const data = await getImageGallery(query, page);
         setGallery((prev) => [...prev, ...data.results]);
-        setShowLoadMore (data.total_pages && data.total_pages !== page)
+        setShowLoadMore (!!(data.total_pages && data.total_pages !== page))
       } catch (error) {
         setError(true);
       } finally {
@@ -69,7 +71,7 @@ function App() {
     setPage(page + 1)
   }
 
-  const handleImageClick = (url) => {
+  const handleImageClick = (url: string) => {
     setIsOpen({ isOpen: true, url: url })
     
   }
