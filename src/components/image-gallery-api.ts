@@ -18,7 +18,7 @@ interface Image {
 }
 
 interface Response{
-    total: number;
+  total: number;
   total_pages: number;
   results: Image[];
 }

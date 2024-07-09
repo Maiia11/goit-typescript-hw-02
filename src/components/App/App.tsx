@@ -14,14 +14,32 @@ const modalParams = {
   url: ''
 };
 
+interface ModalParams {
+  isOpen: boolean,
+  url: string
+}
+
+interface Gallery {
+  id: number,
+    urls: {
+        small: string,
+        regular: string,
+    },
+    alt_description: string,
+    likes: number,
+    user: {
+        name: string
+    }
+}
+
 function App() {
-  const [gallery, setGallery] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [modalIsOpen, setIsOpen] = useState(modalParams);
-  const [showLoadMore, setShowLoadMore] = useState(false);
+  const [gallery, setGallery] = useState<Gallery[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [modalIsOpen, setIsOpen] = useState<ModalParams>(modalParams);
+  const [showLoadMore, setShowLoadMore] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchImageGallery() {
@@ -40,7 +58,7 @@ function App() {
   query && fetchImageGallery()
   }, [query, page])
 
-  const handleSubmit = async (searchQuery) => {
+  const handleSubmit = async (searchQuery:string) => {
     setQuery(searchQuery)
     setGallery([])
     setPage(1)
