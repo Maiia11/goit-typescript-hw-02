@@ -1,7 +1,12 @@
  import ImageCard from "../ImageCard/ImageCard"
 import css from "./ImageGallery.module.css"
 
-const ImageGallery = ({ gallery, onClick }) => {
+interface PropsImageGallery{
+    gallery: [],
+    onClick: ()=> void, 
+}
+
+const ImageGallery = ({ gallery, onClick }:PropsImageGallery) => {
 
     return (
         <ul className={css.list}>
@@ -9,7 +14,7 @@ const ImageGallery = ({ gallery, onClick }) => {
                 
                 return (
                 <li key={id}>
-                        <ImageCard url={small} alt={alt_description} regular={regular} onClick={onClick} likes={likes} location={location} name={name} />
+                        <ImageCard url={small} alt={alt_description} regular={regular} onClick={onClick} likes={likes}  name={name} />
                         
                     </li>
                    
