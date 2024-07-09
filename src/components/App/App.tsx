@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import './App.css'
-import {getImageGallery} from '../image-gallery-api'
+import {getImageGallery, Image} from '../image-gallery-api'
  import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -19,23 +19,10 @@ interface ModalParams {
   url: string
 }
 
-interface Gallery {
-  id: number,
-    urls: {
-        small: string,
-        regular: string,
-    },
-    alt_description: string,
-    likes: number,
-    user: {
-        name: string
-    }
-}
-
 
 
 function App() {
-  const [gallery, setGallery] = useState<Gallery[]>([]);
+  const [gallery, setGallery] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");

@@ -4,7 +4,7 @@ const acceptKey = "zDei0CTQ82bIpGgBAWl-KIKshW8lXqg3k_pY_IM5bRY"
 
 axios.defaults.baseURL = `https://api.unsplash.com`
 
-interface Image {
+export interface Image {
     id: number,
     urls: {
         small: string,

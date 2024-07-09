@@ -1,9 +1,10 @@
- import ImageCard from "../ImageCard/ImageCard"
+ import { Image } from "../image-gallery-api"
+import ImageCard from "../ImageCard/ImageCard"
 import css from "./ImageGallery.module.css"
 
 interface PropsImageGallery{
-    gallery: [],
-    onClick: ()=> void, 
+    gallery: Image[],
+    onClick: (url:string)=> void, 
 }
 
 const ImageGallery = ({ gallery, onClick }:PropsImageGallery) => {
