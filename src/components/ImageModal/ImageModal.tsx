@@ -19,7 +19,13 @@ const customStyles = {
   },
 };
 
-const ImageModal = ({ isOpen, onClose, url }) => {
+interface ImageModalProps{
+  isOpen:boolean,
+  onClose: ()=>void,
+  url: string
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, url }) => {
 
   return (
      <Modal

@@ -9,17 +9,16 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
 
-const modalParams = {
-  isOpen: false,
-  url: ''
-};
 
 interface ModalParams {
   isOpen: boolean,
   url: string
 }
 
-
+const modalParams = {
+  isOpen: false,
+  url: ''
+};
 
 function App() {
   const [gallery, setGallery] = useState<Image[]>([]);
@@ -77,12 +76,10 @@ function App() {
       {modalIsOpen && <ImageModal url={modalIsOpen.url}
         isOpen={modalIsOpen.isOpen}
         onClose={handleCloseModal}
-        onRequestClose={handleCloseModal} />}
+       />}
 
     </>
   )
-
-  
   
 }
 
